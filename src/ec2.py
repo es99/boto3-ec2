@@ -17,4 +17,6 @@ def mostraInstancias():
             print("Private Ip: ", instance["PrivateIpAddress"])
             print("Status: ", instance["State"]["Name"])
             print("InstanceType: ", instance["InstanceType"])
+            print("Keyname: ", instance["KeyName"])
+            print("Security Group Id: ", instance["SecurityGroups"][0]["GroupId"])
             print('-' * 30)
