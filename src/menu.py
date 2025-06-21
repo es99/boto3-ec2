@@ -1,5 +1,6 @@
 import boto3
-from ec2 import mostraInstancias
+from ec2 import pararInstancia
+from ec2 import mostraInstancias, iniciarInstancia
 
 ec2 = boto3.client('ec2')
 
@@ -17,11 +18,13 @@ while True:
         case "1":
             mostraInstancias()
         case "2":
-            print("opcao 2 escolhida.")
-            break
+            instancia = input("Informe o id da instância: ")
+            if pararInstancia(instancia):
+                print("Instancia parada com sucesso.")
         case "3":
-            print("opcao 3 escolhida.")
-            break
+            instancia = input("Informe o id da instância: ")
+            if iniciarInstancia(instancia):
+                print("Instancia iniciada com sucesso.")
         case _:
             print("Não compreendemos sua escolha...")
 
